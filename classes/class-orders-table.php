@@ -129,8 +129,8 @@ class Woo_Orders_Table extends WP_List_Table {
   }
 
   function usort_reorder( $a, $b ) {
-    $orderby = ( ! empty( $_GET['orderby'] ) ) ? $_GET['orderby'] : 'booktitle';
-    $order   = ( ! empty( $_GET['order'] ) ) ? $_GET['order'] : 'asc';
+    $orderby = ( ! empty( $_GET['orderby'] ) ) ? $_GET['orderby'] : 'id';
+    $order   = ( ! empty( $_GET['order'] ) ) ? $_GET['order'] : 'desc';
     $result  = strcmp( $a[ $orderby ], $b[ $orderby ] );
 
     return ( $order === 'asc' ) ? $result : - $result;

@@ -4,18 +4,6 @@ if ( ! defined( 'ABSPATH' ) ) {
   die;
 }
 
-function vd( $data ) {
-  echo '<pre>';
-  var_dump( $data );
-  echo '</pre>';
-}
-
-function pr( $data ) {
-  echo '<pre>';
-  print_r( $data );
-  echo '</pre>';
-}
-
 class Woo_Network_Orders {
 
   public function __construct() {
@@ -63,7 +51,7 @@ class Woo_Network_Orders {
           'order_site'  => sprintf( '<a href="%s">%s</a>', admin_url(), $site->domain ),
           'order_date'   => $date_created->format( 'd.m.Y' ),
           'order_status' => sprintf( '<span class="status-%s">%s</span>', $order->get_status(), $order->get_status() ),
-          'order_total'  => wc_price( $order->get_total() )
+          'order_total'  => wc_price( $order->get_total(), array( 'currency' => $order->get_currency() ) )
         );
       }
 
